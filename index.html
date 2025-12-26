@@ -2,32 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Online Tools Hub</title>
+  <title>Dharanesh's Cosmic Tools Hub</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 40px 20px; background: #f4f6f8; }
-    h1 { text-align: center; margin-bottom: 50px; }
-    .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
-    .tool-card {
-      background: white; padding: 30px; text-align: center; font-size: 18px;
-      text-decoration: none; color: #333; border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: all 0.2s ease;
+    :root {
+      --space-dark: #0b0d17;
+      --nebula-purple: #6e45e2;
+      --star-white: #f8f9fa;
+      --galaxy-blue: #243b55;
     }
-    .tool-card:hover { background: #eaeaea; transform: translateY(-3px); }
-    footer { text-align: center; margin-top: 50px; color: #666; }
+
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      max-width: 900px; 
+      margin: auto; 
+      padding: 40px 20px; 
+      background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+      color: var(--star-white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Keep the subtle star twinkle in the background */
+    #stars-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background-image: 
+        radial-gradient(1px 1px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 50px 160px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0));
+      background-size: 200px 200px;
+      animation: twinkle 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.3; }
+      to { opacity: 0.8; }
+    }
+
+    h1 { 
+      text-align: center; 
+      margin-bottom: 50px; 
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(110, 69, 226, 0.7);
+      /* Title stays still now */
+    }
+
+    .tool-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+      gap: 25px; 
+    }
+
+    .tool-card {
+      background: rgba(255, 255, 255, 0.05); 
+      padding: 30px; 
+      text-align: center; 
+      font-size: 18px;
+      text-decoration: none; 
+      color: var(--star-white); 
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px); 
+      /* Smooth transition for hover only */
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Only moves when the user interacts with it */
+    .tool-card:hover { 
+      background: rgba(110, 69, 226, 0.25); 
+      border-color: #a287f4;
+      transform: translateY(-8px); 
+      box-shadow: 0 10px 30px rgba(110, 69, 226, 0.4);
+    }
+
+    .tool-icon {
+      font-size: 2.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .tool-card:hover .tool-icon {
+      transform: scale(1.15);
+    }
+
+    footer { 
+      text-align: center; 
+      margin-top: 80px; 
+      color: #888; 
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
   </style>
 </head>
 <body>
 
-<h1>🔧 My Online Tools</h1>
+  <div id="stars-container"></div>
 
-<div class="tool-grid">
-  <a href="tools/pdf.html" target="_blank" class="tool-card">📄 PDF Merge & Split</a>
-  <!-- Add more tools here -->
-</div>
+  <h1>🌌 Cosmic Tool Station</h1>
 
-<footer>
-  <p>© 2025 Dharanesh | GitHub Pages</p>
-</footer>
+  <div class="tool-grid">
+    <a href="tools/pdf.html" target="_blank" class="tool-card">
+      <span class="tool-icon">☄️</span>
+      <span>PDF Nebula</span>
+    </a>
+    
+    <a href="#" class="tool-card">
+      <span class="tool-icon">🔭</span>
+      <span>Data Observer</span>
+    </a>
+
+    <a href="#" class="tool-card">
+      <span class="tool-icon">🚀</span>
+      <span>Code Launcher</span>
+    </a>
+  </div>
+
+  <footer>
+    <p>Mission Control © 2025 Dharanesh | Orbiting GitHub Pages</p>
+  </footer>
 
 </body>
 </html>
